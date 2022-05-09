@@ -1,0 +1,237 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block body %}
+
+
+
+        <div class="p-1">
+
+            <div class="w-100 container">
+                <div style="height: 70vh !important" class="p-0 rounded_c">
+
+                    <div id="demo" class="carousel slide h-100 rounded_c" data-ride="carousel">
+
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo" data-slide-to="1"></li>
+                            <li data-target="#demo" data-slide-to="2"></li>
+                            <li data-target="#demo" data-slide-to="3"></li>
+                            <li data-target="#demo" data-slide-to="4"></li>
+                        </ul>
+
+                        <!-- The slideshow -->
+                        <div class="carousel-inner h-100 rounded_c">
+                            <!-- WELCOME -->
+                            <div class="carousel-item h-100 back_img b active" style="background: url('{% static 'home/asssets/slides/1.jpg' %}')">
+                                <div class="w-100 h-100 d-flex bg_trans_50 p-5 flex-wrap align-content-end">
+                                    <div class="">
+                                        <h1 class="page-title">Welcome To <br> Lisadel Travel And Tours </h1>
+                                        <p class="page-description m-0">
+                                            LET US TAKE YOU TO
+                                            YOUR DREAM
+                                            DESTINATION
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TOURISM -->
+                            <div class="carousel-item h-100 back_img b" style="background: url('{% static 'home/asssets/slides/2.jpg' %}')">
+                                <div class="w-100 h-100 d-flex bg_trans_50 p-5 flex-wrap align-content-end">
+                                    <div class="">
+                                        <h2 class="page-title">EXPLORE THE WORLD</h2>
+                                        <p class="page-description m-0">
+                                            Team Of Global Travel Experts.
+                                        </p>
+                                        <p class="w-50">
+                                            We hire the best tour agents and travel specialist to being you the top-notch tours, excursions and unmatched experience.
+                                        </p>
+                                        <a href="{% url 'tours' %}" class="btn btn-info">Packages</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FLIGHT -->
+                            <div class="carousel-item h-100 back_img b" style="background: url('{% static 'home/asssets/slides/3.jpg' %}')">
+                                <div class="w-100 h-100 d-flex bg_trans_50 p-5 flex-wrap align-content-center justify-content-center">
+                                    <div class="text-center">
+                                        <h2 class="page-title">AFFORDABLE AND RELIABLE FLIGHTS</h2>
+                                        <h5 class="page-description">Let's Make Your Best Trip Ever</h5>
+                                        <a href="{% url 'about_us' %}" class="btn btn-info">CONSULTANT</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- VISA -->
+                            <div class="carousel-item h-100 back_img b" style="background: url('{% static 'home/asssets/slides/visa_consult.jpg' %}')">
+                                <div class="w-100 h-100 d-flex bg_trans_50 p-5 flex-wrap align-content-end">
+                                    <div class="">
+                                        <h2 class="page-title">VISA APPLICATION</h2>
+                                        <p class="page-description m-0">
+                                            Team Of Global Visa Experts.
+                                        </p>
+                                        <p class="w-50">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cum cupiditate delectus doloremque earum esse.
+                                        </p>
+                                        <a href="{% url 'visa_consultation' %}" class="btn btn-info">CONSULTANT</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- GALLERY -->
+                            <div class="carousel-item h-100 back_img b" style="background: url('{% static 'home/asssets/slides/4.jpg' %}')">
+                                <div class="w-100 h-100 d-flex bg_trans_50 p-5 flex-wrap align-content-end justify-content-start">
+                                    <div class="text-left">
+                                        <h2 class="page-description m-0 text-warning">Kwehu, Ghana</h2>
+                                        <p class="m-0">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eam si varietatem diceres, intellegerem, ut etiam non dicente te
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <!--                    <a class="carousel-control-prev" href="#demo" data-slide="prev">-->
+                        <!--                        <span class="carousel-control-prev-icon"></span>-->
+                        <!--                    </a>-->
+                        <!--                    <a class="carousel-control-next" href="#demo" data-slide="next">-->
+                        <!--                        <span class="carousel-control-next-icon"></span>-->
+                        <!--                    </a>-->
+
+                    </div>
+
+                </div>
+
+                <!-- EVENTS -->
+                <div class="jumbotron mt-5">
+                    <h4 class="font-weight-bold text-center m-0">TRENDING EVENTS</h4>
+                </div>
+                <p class="text-muted">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </p>
+
+                <div class="row">
+                    {% for event in events %}
+
+                        <div class="col-sm-4 p-2">
+                        <div onmouseover="$('#overlay{{ event.id }}').show()" onmouseout="$('#overlay{{ event.id }}').hide()"  class="card event_card rounded_c p-2 bg-white border-0 custom_shadow">
+                                <span class="status badge badge-light alert-info">
+                                    Accra, Ghana
+                                </span>
+                            <img src="{% static 'home/asssets/events/' %}{{ event.tour_uni }}/cover.jpg" class="card-img-top rounded_c custom_shadow" alt="Event Name">
+
+                            <div style="display: none" id="overlay{{ event.id }}" class="card-img-overlay h-100 p-2">
+                                <div class="bg_trans_80 w-100 h-100 d-flex flex-wrap align-content-center justify-content-center rounded_c">
+                                    <a href="{% url 'view_event' event.url_parse  %}" class="btn btn-light">Details</a>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <p class="font-weight-bold">{{ event.title }}</p>
+                                <p class="text-muted m-0 p-0 text-muted text_sm">
+                                        {{ event.overview|safe|slice:":40"}}
+                                    </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+
+                <div class="text-center m-2"><a href="#" class="btn btn-light"> View All</a></div>
+                <hr>
+                <!-- SERVICES -->
+                <div class="jumbotron">
+                    <h4 class="font-weight-bold text-center m-0">Services</h4>
+                </div>
+                <p class="text-muted">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </p>
+
+                <!-- PETTY SERVICES -->
+                <div class="row d-flex flex-wrap justify-content-center">
+                    {% for service in services %}
+
+                        <div class="col-sm-3 p-2 m-0">
+                        <div class="w-100 text-center bg-white p-5">
+                            <div class="serv_img bg-info p-2 rounded-circle rounded mx-auto">
+                                <img src="{% static 'home/asssets/icons/services/default.png' %}" alt="" class="img-fluid">
+                            </div>
+                            <p class="m-2">
+                                <a href="{% url 'service' service.url_parse %}" class="p-0 m-0 font-weight-bold text-muted">{{ service.title }}</a>
+                            </p>
+                            <small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus alias beatae,</small>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+                <hr>
+
+                <!-- GALLERY -->
+                <div class="jumbotron">
+                    <h4 class="font-weight-bold text-center m-0">GALLERY</h4>
+                </div>
+                <p class="text-muted">
+                    Shuffle of images from our recent events
+                </p>
+
+                <div ID="ngy2p" data-nanogallery2='{"itemsBaseURL": "","thumbnailWidth": "auto","thumbnailLabel": {
+                          "position": "overImageOnBottom"
+                        },
+                        "thumbnailAlignment": "center",
+                        "thumbnailOpenImage": true
+                      }'>
+                    {% for gall in gallery %}
+                        <a
+                                href="{% static  'home/asssets/events/' %}{{ gall.event }}/{{ gall.media_name }}"
+                                data-ngthumb="{% static  'home/asssets/events/' %}{{ gall.event }}/thumbs/{{ gall.media_name }}"
+                                data-ngdesc="Kwehu"
+                        >
+                            Kwehu
+                        </a>
+                    {% endfor %}
+
+
+                </div>
+
+                <!-- YOUTUBE -->
+                <div class="row">
+                    <div class="col-sm-6 p-2">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/fC0RxfOzKAw" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-2">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vPEuACVkcVc" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-2">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/VolHp2yLMLw" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-2">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+{% endblock %}

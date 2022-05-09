@@ -1,0 +1,147 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block body %}
+
+
+        <div>
+            <div class="container mt-2">
+                <div class="mb-5 p-2 bg-white w-100 text-muted clearfix">
+                    <img src="{% static 'home/asssets/logo.png' %}" alt="" class="about_logo img-fluid img-thumbnail mr-2 mb-2 float-left">
+                    <h4>
+                        We’re truely dedicated to make your travel experience as much simple and fun as possible!
+                    </h4>
+                    <p>
+                        Lisadel Travel & Tours is a well-established travel Agency that’s specializes in Tour packages all over the world, Hotel Reservation, Airline Ticketing With experienced staff members in handling inbound and outbound holidays and reservations.
+                    </p>
+                    <p>
+                        In Lisadel Travel & Tours, we serve our clients with the best assistance when it comes to the airline service and hospitality.
+                   </p>
+                    <p>
+Our specialty is the ability to design unique all-inclusive packages to fit every type of tourist, from the budget to the luxury. We offer unbeatable prices for Individuals, families and groups. If you’re looking for a vacation that provides a huge sense of personal recreation, fun, excitement, relaxation, adventure, Lisadel Travel & Tours is the best agency to contact.
+                    </p>
+                </div>
+
+                <!-- TEAM -->
+                <h5 class="text-muted text-center">Lisadel Dedicated Team</h5>
+                <div class="row mb-5 d-flex flex-wrap justify-content-center">
+
+                    {% for member in team_member %}
+                        <div class="col-md-4">
+                                <div class="card-box text-center">
+                                    <div class="user-pic">
+                                        <img src="{% static 'home/asssets/team/c4c148410b996fa929f26253bbe2a1d2.jpg' %}" class="img-fluid" alt="User Pic">
+                                    </div>
+                                    <h4>{{ member.name }}</h4>
+                                    <small>{{ member.position }}</small>
+                                    <hr>
+                                    <div class="w-100 d-flex flex-wrap justify-content-center">
+                                        <a href="{{ member.fb }}" target="_blank" class="btn btn-outline-primary m-1"><i class="fa fa-facebook"></i></a>
+                                        <a href="{{ member.linked }}" target="_blank" class="btn btn-outline-primary m-1"><i class="fa fa-linkedin"></i></a>
+                                        <a href="{{ member.twi }}" target="_blank" class="btn btn-outline-warning m-1"><i class="fa fa-twitch"></i></a>
+                                    </div>
+                                </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+                <!-- PARTNERS -->
+                <h4>Our Partner Relations</h4>
+                <div class="row mb-5">
+
+                    <div class="col-sm-2 p-2">
+                        <div class="w-100 text-center p-2 bg-white">
+                            <div class="p_logo mx-auto">
+                                <img src="{% static 'home/asssets/icons/clock.png' %}" alt="" class="img-fluid">
+                            </div>
+                            <small class="text-muted">Name Description</small>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2 p-2">
+                        <div class="w-100 text-center p-2 bg-white">
+                            <div class="p_logo mx-auto">
+                                <img src="{% static 'home/asssets/icons/clock.png' %}" alt="" class="img-fluid">
+                            </div>
+                            <small class="text-muted">Name Description</small>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2 p-2">
+                        <div class="w-100 text-center p-2 bg-white">
+                            <div class="p_logo mx-auto">
+                                <img src="{% static 'home/asssets/icons/clock.png' %}" alt="" class="img-fluid">
+                            </div>
+                            <small class="text-muted">Name Description</small>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2 p-2">
+                        <div class="w-100 text-center p-2 bg-white">
+                            <div class="p_logo mx-auto">
+                                <img src="{% static 'home/asssets/icons/clock.png' %}" alt="" class="img-fluid">
+                            </div>
+                            <small class="text-muted">Name Description</small>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2 p-2">
+                        <div class="w-100 text-center p-2 bg-white">
+                            <div class="p_logo mx-auto">
+                                <img src="{% static 'home/asssets/icons/clock.png' %}" alt="" class="img-fluid">
+                            </div>
+                            <small class="text-muted">Name Description</small>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2 p-2">
+                        <div class="w-100 text-center p-2 bg-white">
+                            <div class="p_logo mx-auto">
+                                <img src="{% static 'home/asssets/icons/clock.png' %}" alt="" class="img-fluid">
+                            </div>
+                            <small class="text-muted">Name Description</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- LOCATION -->
+                <h5 class="text-muted">Locate Us</h5>
+                <div class="w-100 bg-light mb-5" style="height: 75vh">
+                     <iframe
+                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.5040725419144!2d-0.16407558573074288!3d5.639950895911567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9b98556dfc57%3A0xd4502bf314dd29a4!2sLISADEL%20TRAVEL%20%26%20TOUR!5e0!3m2!1sen!2sgh!4v1651253592374!5m2!1sen!2sgh"
+                             style="border:0; height: 100%; width: 100%"
+                             allowfullscreen=""
+                             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <!-- GET IN TOUCH -->
+                <div class="w-100 bg-white mb-5 row p-2">
+                    <div class="col-sm-3">
+                        <img style="width: 200px" src="{% static 'home/asssets/services/img.png' %}" alt="">
+                    </div>
+                    <div class="col d-flex flex-wrap align-content-between">
+                        <p class="m-0 text-muted font-weight-bolder w-100">Get In Touch</p>
+                        <small class="text-muted">
+                                We would be more than happy to help you. Our team advisor are 24/7 at your service to help you.
+                            </small> <br>
+                            <div class="w-100">
+                                <a href="#" class="text-muted"> <small><i class="fa fa-phone"></i> 111-222-333</small></a>
+                            </div>
+                            <div class="w-100">
+                                <a href="#" class="text-muted"> <small><i class="fa fa-whatsapp"></i> 111-222-333</small></a>
+                            </div>
+                            <div class="w-100">
+                                <a href="#" class="text-muted"> <small><i class="fa fa-envelope"></i> email@domain.com</small></a>
+                            </div>
+                            <div class="w-100"><a href="https://goo.gl/maps/k4LemPJxqSbX5RvP9" target="_blank" class="text-muted"> <small><i class="fa fa-map"></i> 46 Mensah Wood Ave, Accra</small></a></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+{% endblock %}
