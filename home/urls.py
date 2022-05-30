@@ -36,3 +36,5 @@ urlpatterns = [
     path('about-us', views.about_us, name='about_us'),
     path('gallery', views.gallery, name='gallery'),
 ]
+
+handler404 = 'views.view_404'

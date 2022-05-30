@@ -1,5 +1,5 @@
 from django.core.mail import send_mail
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from . import models
 from django.core.exceptions import ObjectDoesNotExist
@@ -228,3 +228,7 @@ def visa_bokk(request):
         return HttpResponse(request)
     else:
         return HttpResponse("Form should be posted")
+
+
+def view_404(request, exception=None):
+    return HttpResponseRedirect("/")
