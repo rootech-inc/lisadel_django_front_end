@@ -35,6 +35,6 @@ urlpatterns = [
 
     path('about-us', views.about_us, name='about_us'),
     path('gallery', views.gallery, name='gallery'),
+    path('^(?P<path>.*)$', views.view_404())
 ]
 
-handler404 = 'views.view_404'
