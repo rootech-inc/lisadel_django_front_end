@@ -110,3 +110,14 @@ class contact_us(models.Model):
     phone_number = models.TextField()
     email_address = models.TextField()
     message = models.TextField()
+
+
+# partners
+class partners(models.Model):
+    uni = models.TextField()
+    partner_name = models.TextField()
+    partner_img = models.TextField()
+    created_on = models.DateTimeField()
+
+    def __str__(self):
+        return self.uni + ' - ' + self.partner_name
